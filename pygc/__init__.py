@@ -1,4 +1,4 @@
-import ConfigParser, pygame
+import ConfigParser, pygame, key
 
 class Object():
 	pass
@@ -30,10 +30,14 @@ def mainloop():
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT: sys.exit()
+		key.update()
+		#entry point
+
 
 def main():
 	readcfg()
 	initpyg()
+	key.init()
 	mainloop()
 
 main()
