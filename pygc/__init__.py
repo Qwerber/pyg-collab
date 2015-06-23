@@ -7,6 +7,7 @@ class Object():
 localVals = Object
 localVals.cfg = None
 localVals.screen = None
+localVals.key = None
 
 def readcfg():
 	localVals.cfg = ConfigParser.ConfigParser()
@@ -32,14 +33,14 @@ def mainloop():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
-		key.update()
+		localVals.key.update()
 		#entry point
 
 
 def main():
 	readcfg()
 	initpyg()
-	key.init()
+	localVals.key = key.KeyObj();
 	mainloop()
 
 main()
