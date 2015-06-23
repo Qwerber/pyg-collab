@@ -1,4 +1,5 @@
 import ConfigParser, pygame, key
+import sys
 
 class Object():
 	pass
@@ -29,7 +30,8 @@ def initpyg():
 def mainloop():
 	while True:
 		for event in pygame.event.get():
-			if event.type == pygame.QUIT: sys.exit()
+			if event.type == pygame.QUIT:
+				sys.exit()
 		key.update()
 		#entry point
 
