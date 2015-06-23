@@ -1,25 +1,18 @@
 import pygame
 
 class KeyObj:
-	pass
+	def __init__(self):
+		self.pressed = pygame.key.get_pressed()
+		self.lastPressed = pygame.key.get_pressed()
+	def update(self):
+		self.lastPressed = key.pressed[:]
+		self.pressed = pygame.key.get_pressed()
 
-key = KeyObj();
-key.pressed = []
-key.lastPressed = []
+	def isPressed(self, _key):
+		return self.pressed[_key]
 
-def init():
-	key.pressed = pygame.key.get_pressed()
-	key.lastPressed = pygame.key.get_pressed()
+	def justPressed(self, _key):
+		return self.pressed[_key] and not(self.lastPressed[_key])
 
-def update():
-	key.lastPressed = key.pressed[:]
-	key.pressed = pygame.key.get_pressed()
-
-def isPressed(_key):
-	return key.pressed[_key]
-
-def justPressed(_key):
-	return key.pressed[_key] and not(key.lastPressed[_key])
-
-def justReleased(_key):
-	return not(key.pressed[_key]) and key.lastPressed[_key]
+	def justReleased(self, _key):
+		return not(self.pressed[_key]) and self.lastPressed[_key]
