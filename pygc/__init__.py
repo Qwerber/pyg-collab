@@ -1,6 +1,8 @@
-import ConfigParser
+import ConfigParser, pyg
 
-def main():
+cfg = None
+
+def readcfg():
 	cfg = ConfigParser.ConfigParser()
 	cfg.read('settings/gamecfg.ini')
 
@@ -9,5 +11,12 @@ def main():
 
 	#
 	print screenW, screenH
+
+def initpyg():
+
+
+def main():
+	readcfg()
+	initpyg()
 
 main()
